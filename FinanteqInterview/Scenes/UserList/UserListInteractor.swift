@@ -8,14 +8,31 @@
 
 import Foundation
 
-protocol UserListInteractorOutput {}
+protocol UserListInteractorOutput {
+    func fetchUsers(response: UserListScene.FetchUsers.Response)
+}
 
 protocol UserListDataSource {}
 
 class UserListInteractor: UserListDataSource {
     var output: UserListInteractorOutput?
+
+    fileprivate let userWorker = UserWorker()
+    fileprivate var users: [User] = []
+
+    //MARK: Responses
+
+    fileprivate func fetchUsersResponse(users: [User]) {
+        let response = UserListScene.FetchUsers.Response(userList: users)
+        output?.fetchUsers(response: response)
+    }
 }
 
 // MARK: UserListViewControllerOutput
 
-extension UserListInteractor: UserListViewControllerOutput {}
+extension UserListInteractor: UserListViewControllerOutput {
+    func fetchUsers(request: UserListScene.FetchUsers.Request) {
+        users = userWorker.mockedUsers()
+        fetchUsersResponse(users: users)
+    }
+}

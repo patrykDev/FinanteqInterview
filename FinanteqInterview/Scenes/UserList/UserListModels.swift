@@ -9,5 +9,16 @@
 import Foundation
 
 struct UserListScene {
-    
+
+    struct FetchUsers {
+        struct Request {}
+
+        struct Response {
+            let userList: [User]
+        }
+
+        struct ViewModel {
+            let userListItems: [UserListItem]
+        }
+    }
 }
