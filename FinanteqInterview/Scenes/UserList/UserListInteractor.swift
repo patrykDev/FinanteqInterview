@@ -32,7 +32,14 @@ class UserListInteractor: UserListDataSource {
 
 extension UserListInteractor: UserListViewControllerOutput {
     func fetchUsers(request: UserListScene.FetchUsers.Request) {
-        users = userWorker.mockedUsers()
-        fetchUsersResponse(users: users)
+        //TODO: show indicator
+        userWorker.fetchUsers().then { fetchedUsers in
+            self.users = fetchedUsers
+            self.fetchUsersResponse(users: self.users)
+        }.catch { error in
+            //TODO handle error
+        }.always {
+            //TODO: hide indicator
+        }
     }
 }
