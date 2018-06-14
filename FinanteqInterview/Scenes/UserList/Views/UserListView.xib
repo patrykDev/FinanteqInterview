@@ -16,16 +16,27 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5y-o9-7wW">
-                    <rect key="frame" x="148" y="331" width="68" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TPt-I0-fPi">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="PNt-n7-k8X"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="qpT-7r-wxd"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="TPt-I0-fPi" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="0RN-NA-WhW"/>
+                <constraint firstItem="TPt-I0-fPi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QuY-5N-qCE"/>
+                <constraint firstItem="TPt-I0-fPi" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="ZLy-rc-sT8"/>
+                <constraint firstItem="TPt-I0-fPi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gxf-pq-y18"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="tableView" destination="TPt-I0-fPi" id="TiW-j2-jtO"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
 </document>

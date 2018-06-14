@@ -8,7 +8,9 @@
 
 import UIKit
 
-protocol UserListViewControllerOutput {}
+protocol UserListViewControllerOutput {
+    func fetchUsers(request: UserListScene.FetchUsers.Request)
+}
 
 class UserListViewController: UIViewController {
 
@@ -37,10 +39,21 @@ class UserListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //TODO: Configure view
+        fetchUsersRequest()
+    }
+
+    // MARK: Requests
+
+    fileprivate func fetchUsersRequest() {
+        let request = UserListScene.FetchUsers.Request()
+        output?.fetchUsers(request: request)
     }
 }
 
 // MARK: UserListPresenterOutput
 
-extension UserListViewController: UserListPresenterOutput {}
+extension UserListViewController: UserListPresenterOutput {
+    func fetchUsers(viewModel: UserListScene.FetchUsers.ViewModel) {
+        userListView?.reload(users: viewModel.userListItems)
+    }
+}
