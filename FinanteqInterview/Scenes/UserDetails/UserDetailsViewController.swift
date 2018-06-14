@@ -38,6 +38,7 @@ class UserDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //TODO: Configure view
+        userDetailsView?.configureView(avatarUrl: router?.dataSource.currentUser.avatarUrl ?? "", username: "Jasio")
     }
 }
 

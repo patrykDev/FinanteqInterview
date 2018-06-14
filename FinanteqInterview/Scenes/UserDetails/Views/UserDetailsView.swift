@@ -7,7 +7,14 @@
 //
 
 import UIKit
+import Kingfisher
 
 class UserDetailsView: UIView {
 
+    @IBOutlet fileprivate var avatarImageView: UIImageView!
+
+    func configureView(avatarUrl: String, username: String) {
+        avatarImageView.kf.indicatorType = .activity
+        avatarImageView.kf.setImage(with: URL(string: avatarUrl))
+    }
 }
