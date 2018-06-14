@@ -44,7 +44,7 @@ extension UserListView: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UserListItemCell.description()) as? UserListItemCell else { return UITableViewCell() }
-        //TODO: configure cell
+        cell.configure(with: items[indexPath.row])
 
         return cell
     }

@@ -16,6 +16,16 @@ struct UserListItem {
 }
 
 class UserListItemCell: UITableViewCell {
-    //thumbnailImageView.kf.indicatorType = .activity
-    //thumbnailImageView.kf.setImage(with: URL(string: imageUrl))
+
+    @IBOutlet fileprivate var nameLabel: UILabel!
+    @IBOutlet fileprivate var descriptionLabel: UILabel!
+    @IBOutlet fileprivate var avatarImageView: UIImageView!
+
+    func configure(with item: UserListItem) {
+        avatarImageView.kf.indicatorType = .activity
+        avatarImageView.kf.setImage(with: URL(string: item.avatarUrl))
+
+        nameLabel.text = item.username
+        descriptionLabel.text = item.additionalInfo
+    }
 }
