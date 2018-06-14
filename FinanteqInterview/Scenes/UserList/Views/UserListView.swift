@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol UserListViewDelegate: class {
+    func userListView(userListView: UserListView, didSelectItemAt index: Int)
+}
+
 class UserListView: UIView {
 
     @IBOutlet fileprivate var tableView: UITableView!
 
     fileprivate var items: [UserListItem] = []
+
+    weak var delegate: UserListViewDelegate?
 
     // MARK: UIView life cycle
 
@@ -54,6 +60,6 @@ extension UserListView: UITableViewDataSource {
 
 extension UserListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: handle selection
+        delegate?.userListView(userListView: self, didSelectItemAt: indexPath.row)
     }
 }

@@ -7,6 +7,9 @@ PODS:
   - Moya/Core (11.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
+  - NVActivityIndicatorView (4.2.1):
+    - NVActivityIndicatorView/Presenter (= 4.2.1)
+  - NVActivityIndicatorView/Presenter (4.2.1)
   - ObjectMapper (3.1.0)
   - Result (3.2.4)
   - SwiftyJSON (4.1.0)
@@ -15,6 +18,7 @@ DEPENDENCIES:
   - HydraAsync
   - Kingfisher (~> 4.8)
   - Moya
+  - NVActivityIndicatorView
   - ObjectMapper
   - SwiftyJSON
 
@@ -24,6 +28,7 @@ SPEC REPOS:
     - HydraAsync
     - Kingfisher
     - Moya
+    - NVActivityIndicatorView
     - ObjectMapper
     - Result
     - SwiftyJSON
@@ -33,10 +38,11 @@ SPEC CHECKSUMS:
   HydraAsync: 8f2ab62d57e140b4ca587ae0f66e1eb04e8e6965
   Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
   Moya: a725035953bc1c0eb1be505ab903984501d82440
+  NVActivityIndicatorView: 8068ba3ad39cb44cbaab25d89ff2546b3f092681
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: d2048b084d003d87c86cdc817362ab64228d851c
+PODFILE CHECKSUM: 9737061befc6e342974efcda907b0619eb194182
 
 COCOAPODS: 1.5.3

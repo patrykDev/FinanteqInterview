@@ -8,12 +8,14 @@
 
 import Foundation
 
-protocol UserDetailsRouterDataSource: class {}
+protocol UserDetailsRouterDataSource: class {
+    var currentUser: User! { get set }
+}
 
 class UserDetailsRouter {
 
     weak var viewController: UserDetailsViewController!
-    weak private var dataSource: UserDetailsRouterDataSource!
+    weak var dataSource: UserDetailsRouterDataSource!
 
     init(viewController: UserDetailsViewController, dataSource: UserDetailsRouterDataSource) {
         self.viewController = viewController

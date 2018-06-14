@@ -10,6 +10,8 @@ import Foundation
 
 protocol UserListPresenterOutput: class {
     func fetchUsers(viewModel: UserListScene.FetchUsers.ViewModel)
+    func navigateToUserDetails(viewModel: UserListScene.NavigateToUserDetails.ViewModel)
+    func updateIndicatorState(viewModel: UserListScene.UpdateIndicatorState.ViewModel)
 }
 
 class UserListPresenter {
@@ -21,9 +23,9 @@ class UserListPresenter {
     fileprivate func additionalInfo(from userType: UserType) -> String {
         switch userType {
         case .dailyMotion:
-            return "Daily Motion"
+            return NSLocalizedString("user_type_daily_motion", comment: "")
         case .gitHub:
-            return "Git Hub"
+            return NSLocalizedString("user_type_git_hub", comment: "")
         }
     }
 }
@@ -37,6 +39,20 @@ extension UserListPresenter: UserListInteractorOutput {
 
         DispatchQueue.main.async { [weak self] in
             self?.output?.fetchUsers(viewModel: viewModel)
+        }
+    }
+
+    func navigateToUserDetail(response: UserListScene.NavigateToUserDetails.Response) {
+        let viewModel = UserListScene.NavigateToUserDetails.ViewModel(user: response.user)
+        DispatchQueue.main.async { [weak self] in
+            self?.output?.navigateToUserDetails(viewModel: viewModel)
+        }
+    }
+
+    func updateIndicatorState(response: UserListScene.UpdateIndicatorState.Response) {
+        let viewModel = UserListScene.UpdateIndicatorState.ViewModel(isHidden: response.isHidden)
+        DispatchQueue.main.async { [weak self] in
+            self?.output?.updateIndicatorState(viewModel: viewModel)
         }
     }
 }

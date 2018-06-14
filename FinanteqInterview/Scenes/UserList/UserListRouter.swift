@@ -13,7 +13,7 @@ protocol UserListRouterDataSource: class {}
 class UserListRouter {
 
     weak var viewController: UserListViewController!
-    weak private var dataSource: UserListRouterDataSource!
+    weak var dataSource: UserListRouterDataSource!
 
     init(viewController: UserListViewController, dataSource: UserListRouterDataSource) {
         self.viewController = viewController
@@ -22,7 +22,9 @@ class UserListRouter {
 
     // MARK: Navigation
 
-    func navigateToUserDetails() {
-        //TODO: Implement Navigation
+    func navigateToUserDetails(user: User) {
+        let userDetailsViewController = UserDetailsViewController()
+        userDetailsViewController.router?.dataSource.currentUser = user
+        viewController.navigationController?.pushViewController(userDetailsViewController, animated: true)
     }
 }

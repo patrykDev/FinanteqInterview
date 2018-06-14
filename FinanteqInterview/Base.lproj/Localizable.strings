@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  FinanteqInterview
+
+  Created by Patryk Domagala on 14/06/2018.
+  Copyright © 2018 Dom-Pat. All rights reserved.
+*/
+
+// MARK: User List
+
+"user_list_scene_title" = "User List";

@@ -10,10 +10,13 @@ import Foundation
 
 protocol UserDetailsInteractorOutput {}
 
-protocol UserDetailsDataSource {}
+protocol UserDetailsDataSource {
+    var currentUser: User! { get set }
+}
 
 class UserDetailsInteractor: UserDetailsDataSource {
     var output: UserDetailsInteractorOutput?
+    var currentUser: User!
 }
 
 // MARK: UserDetailsViewControllerOutput
