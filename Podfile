@@ -9,6 +9,9 @@ target 'FinanteqInterview' do
   # Pods for FinanteqInterview
 
   pod 'Kingfisher', '~> 4.8'
-  pod 'Alamofire', '~> 4.7'
+  pod 'Moya'
+  pod 'ObjectMapper'
+  pod 'SwiftyJSON'
+  pod 'HydraAsync'
 
 end
