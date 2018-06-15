@@ -11,7 +11,7 @@ import Foundation
 protocol UserListInteractorOutput {
     func fetchUsers(response: UserListScene.FetchUsers.Response)
     func navigateToUserDetail(response: UserListScene.NavigateToUserDetails.Response)
-    func updateIndicatorState(response: UserListScene.UpdateIndicatorState.Response)
+    func updateTableViewState(response: UserListScene.UpdateTableViewState.Response)
 }
 
 protocol UserListDataSource {}
@@ -34,9 +34,9 @@ class UserListInteractor: UserListDataSource {
         output?.navigateToUserDetail(response: response)
     }
 
-    fileprivate func updateIndicatorStateResponse(isHidden: Bool) {
-        let response = UserListScene.UpdateIndicatorState.Response(isHidden: isHidden)
-        output?.updateIndicatorState(response: response)
+    fileprivate func updateTableViewStateResponse(state: HGTableViewState) {
+        let response = UserListScene.UpdateTableViewState.Response(state: state)
+        output?.updateTableViewState(response: response)
     }
 }
 
@@ -44,14 +44,14 @@ class UserListInteractor: UserListDataSource {
 
 extension UserListInteractor: UserListViewControllerOutput {
     func fetchUsers(request: UserListScene.FetchUsers.Request) {
-        updateIndicatorStateResponse(isHidden: false)
+        updateTableViewStateResponse(state: .loading)
         userWorker.fetchUsers().then { fetchedUsers in
             self.users = fetchedUsers
             self.fetchUsersResponse(users: self.users)
+            let tableState: HGTableViewState = self.users.isEmpty ? .empty : .content
+            self.updateTableViewStateResponse(state: tableState)
         }.catch { error in
-            //TODO handle error
-        }.always {
-            self.updateIndicatorStateResponse(isHidden: true)
+            self.updateTableViewStateResponse(state: .error)
         }
     }
 

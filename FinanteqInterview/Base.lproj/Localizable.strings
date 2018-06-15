@@ -6,6 +6,14 @@
   Copyright © 2018 Dom-Pat. All rights reserved.
 */
 
-// MARK: User List
+// MARK: UserList scene
 
 "user_list_scene_title" = "User List";
+
+"user_type_git_hub" = "GitHub";
+"user_type_daily_motion" = "DailyMotion";
+
+// MARK: UserDetails scene
+
+"user_details_username_title" = "Username:";
+"user_details_user_type_title" = "User type:";

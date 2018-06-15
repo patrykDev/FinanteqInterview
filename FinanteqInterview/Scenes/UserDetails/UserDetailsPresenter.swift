@@ -8,7 +8,9 @@
 
 import Foundation
 
-protocol UserDetailsPresenterOutput: class {}
+protocol UserDetailsPresenterOutput: class {
+    func setupView(viewModel: UserDetailsScene.SetupView.ViewModel)
+}
 
 class UserDetailsPresenter {
 
@@ -17,4 +19,11 @@ class UserDetailsPresenter {
 
 // MARK: UserDetailsInteractorOutput
 
-extension UserDetailsPresenter: UserDetailsInteractorOutput {}
+extension UserDetailsPresenter: UserDetailsInteractorOutput {
+    func setupView(response: UserDetailsScene.SetupView.Response) {
+        let viewModel = UserDetailsScene.SetupView.ViewModel(username: response.user.username, userType: response.user.userType.userTypeString, avatarUrl: response.user.avatarUrl)
+        DispatchQueue.main.async { [weak self] in
+            self?.output?.setupView(viewModel: viewModel)
+        }
+    }
+}

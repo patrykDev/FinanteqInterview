@@ -38,13 +38,13 @@ struct UserListScene {
         }
     }
 
-    struct UpdateIndicatorState {
+    struct UpdateTableViewState {
         struct Response {
-            let isHidden: Bool
+            let state: HGTableViewState
         }
 
         struct ViewModel {
-            let isHidden: Bool
+            let state: HGTableViewState
         }
     }
 }

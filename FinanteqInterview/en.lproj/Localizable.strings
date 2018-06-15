@@ -14,3 +14,6 @@
 "user_type_daily_motion" = "DailyMotion";
 
 // MARK: UserDetails scene
+
+"user_details_username_title" = "Username:";
+"user_details_user_type_title" = "User type:";

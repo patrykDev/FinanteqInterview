@@ -8,4 +8,18 @@
 
 import Foundation
 
-struct UserDetailsScene {}
+struct UserDetailsScene {
+    struct SetupView {
+        struct Request {}
+
+        struct Response {
+            let user: User
+        }
+
+        struct ViewModel {
+            let username: String
+            let userType: String
+            let avatarUrl: String
+        }
+    }
+}

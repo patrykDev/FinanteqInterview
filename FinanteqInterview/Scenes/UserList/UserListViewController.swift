@@ -69,13 +69,8 @@ extension UserListViewController: UserListPresenterOutput {
         router?.navigateToUserDetails(user: viewModel.user)
     }
 
-    func updateIndicatorState(viewModel: UserListScene.UpdateIndicatorState.ViewModel) {
-        switch viewModel.isHidden {
-        case true:
-            hideIndicator()
-        case false:
-            showIndicator()
-        }
+    func updateTableViewState(viewModel: UserListScene.UpdateTableViewState.ViewModel) {
+        userListView?.setTableView(state: viewModel.state)
     }
 }
 
@@ -84,5 +79,9 @@ extension UserListViewController: UserListPresenterOutput {
 extension UserListViewController: UserListViewDelegate {
     func userListView(userListView: UserListView, didSelectItemAt index: Int) {
         selectUserRequest(index: index)
+    }
+
+    func userListViewDidTapTryAgainButton(userListView: UserListView) {
+        fetchUsersRequest()
     }
 }

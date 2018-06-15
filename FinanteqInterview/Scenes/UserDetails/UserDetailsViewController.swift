@@ -8,7 +8,9 @@
 
 import UIKit
 
-protocol UserDetailsViewControllerOutput {}
+protocol UserDetailsViewControllerOutput {
+    func setupView(request: UserDetailsScene.SetupView.Request)
+}
 
 class UserDetailsViewController: UIViewController {
 
@@ -37,11 +39,21 @@ class UserDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //TODO: Configure view
-        userDetailsView?.configureView(avatarUrl: router?.dataSource.currentUser.avatarUrl ?? "", username: "Jasio")
+        setupViewRequest()
+    }
+
+    // MARK: Requests
+
+    fileprivate func setupViewRequest() {
+        let request = UserDetailsScene.SetupView.Request()
+        output?.setupView(request: request)
     }
 }
 
 // MARK: UserDetailsPresenterOutput
 
-extension UserDetailsViewController: UserDetailsPresenterOutput {}
+extension UserDetailsViewController: UserDetailsPresenterOutput {
+    func setupView(viewModel: UserDetailsScene.SetupView.ViewModel) {
+        userDetailsView?.configureView(viewModel: viewModel)
+    }
+}
