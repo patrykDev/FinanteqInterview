@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.2)
+  - HGPlaceholders (0.3.0)
   - HydraAsync (1.2.1)
   - Kingfisher (4.8.0)
   - Moya (11.0.2):
@@ -12,6 +13,7 @@ PODS:
   - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
+  - HGPlaceholders
   - HydraAsync
   - Kingfisher (~> 4.8)
   - Moya
@@ -21,6 +23,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - HGPlaceholders
     - HydraAsync
     - Kingfisher
     - Moya
@@ -30,6 +33,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  HGPlaceholders: 2df01c51b04a30acd0b8c9c7161c7cdde4541109
   HydraAsync: 8f2ab62d57e140b4ca587ae0f66e1eb04e8e6965
   Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
   Moya: a725035953bc1c0eb1be505ab903984501d82440
@@ -37,6 +41,6 @@ SPEC CHECKSUMS:
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: d2048b084d003d87c86cdc817362ab64228d851c
+PODFILE CHECKSUM: f52b716e46c3c901e55b52534fd15cc0ce47f957
 
 COCOAPODS: 1.5.3

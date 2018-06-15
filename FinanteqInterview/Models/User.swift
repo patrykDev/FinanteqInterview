@@ -11,6 +11,15 @@ import Foundation
 enum UserType {
     case dailyMotion
     case gitHub
+
+    var userTypeString: String {
+        switch self {
+        case .dailyMotion:
+            return NSLocalizedString("user_type_daily_motion", comment: "")
+        case .gitHub:
+            return NSLocalizedString("user_type_git_hub", comment: "")
+        }
+    }
 }
 
 protocol User {

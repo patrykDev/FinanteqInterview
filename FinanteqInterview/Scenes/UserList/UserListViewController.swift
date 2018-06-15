@@ -10,6 +10,7 @@ import UIKit
 
 protocol UserListViewControllerOutput {
     func fetchUsers(request: UserListScene.FetchUsers.Request)
+    func selectUser(request: UserListScene.SelectUser.Request)
 }
 
 class UserListViewController: UIViewController {
@@ -35,6 +36,8 @@ class UserListViewController: UIViewController {
 
     override func loadView() {
         view = userListView
+        userListView?.delegate = self
+        title = NSLocalizedString("user_list_scene_title", comment: "")
     }
 
     override func viewDidLoad() {
@@ -48,6 +51,11 @@ class UserListViewController: UIViewController {
         let request = UserListScene.FetchUsers.Request()
         output?.fetchUsers(request: request)
     }
+
+    fileprivate func selectUserRequest(index: Int) {
+        let request = UserListScene.SelectUser.Request(index: index)
+        output?.selectUser(request: request)
+    }
 }
 
 // MARK: UserListPresenterOutput
@@ -55,5 +63,25 @@ class UserListViewController: UIViewController {
 extension UserListViewController: UserListPresenterOutput {
     func fetchUsers(viewModel: UserListScene.FetchUsers.ViewModel) {
         userListView?.reload(users: viewModel.userListItems)
+    }
+
+    func navigateToUserDetails(viewModel: UserListScene.NavigateToUserDetails.ViewModel) {
+        router?.navigateToUserDetails(user: viewModel.user)
+    }
+
+    func updateTableViewState(viewModel: UserListScene.UpdateTableViewState.ViewModel) {
+        userListView?.setTableView(state: viewModel.state)
+    }
+}
+
+// MARK: UserListViewDelegate
+
+extension UserListViewController: UserListViewDelegate {
+    func userListView(userListView: UserListView, didSelectItemAt index: Int) {
+        selectUserRequest(index: index)
+    }
+
+    func userListViewDidTapTryAgainButton(userListView: UserListView) {
+        fetchUsersRequest()
     }
 }

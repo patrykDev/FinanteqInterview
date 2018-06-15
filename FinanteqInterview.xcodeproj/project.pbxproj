@@ -37,6 +37,8 @@
 		4A529BFD20D2CDF7004284EF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A529BFC20D2CDF7004284EF /* APIService.swift */; };
 		4A529BFF20D2DC86004284EF /* DailyMotionUserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A529BFE20D2DC86004284EF /* DailyMotionUserDTO.swift */; };
 		4A529C0120D2DD59004284EF /* DailyMotionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A529C0020D2DD59004284EF /* DailyMotionAPI.swift */; };
+		4A529C0420D2E97D004284EF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A529C0620D2E97D004284EF /* Localizable.strings */; };
+		4A529C0C20D43E2A004284EF /* HGTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A529C0B20D43E2A004284EF /* HGTableView.swift */; };
 		C1C928A7B0E84BF83EA0F2F8 /* Pods_FinanteqInterview.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50D7E50C53A9AAEAEC86804 /* Pods_FinanteqInterview.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,9 @@
 		4A529BFC20D2CDF7004284EF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		4A529BFE20D2DC86004284EF /* DailyMotionUserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMotionUserDTO.swift; sourceTree = "<group>"; };
 		4A529C0020D2DD59004284EF /* DailyMotionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyMotionAPI.swift; sourceTree = "<group>"; };
+		4A529C0520D2E97D004284EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4A529C0720D2EA50004284EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4A529C0B20D43E2A004284EF /* HGTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGTableView.swift; sourceTree = "<group>"; };
 		4FBC223266F37BD92D05AD38 /* Pods-FinanteqInterview.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinanteqInterview.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FinanteqInterview/Pods-FinanteqInterview.debug.xcconfig"; sourceTree = "<group>"; };
 		E50D7E50C53A9AAEAEC86804 /* Pods_FinanteqInterview.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinanteqInterview.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,6 +131,7 @@
 				4A529BB320D00BBE004284EF /* Assets.xcassets */,
 				4A529BB520D00BBE004284EF /* LaunchScreen.storyboard */,
 				4A529BB820D00BBE004284EF /* Info.plist */,
+				4A529C0620D2E97D004284EF /* Localizable.strings */,
 			);
 			path = FinanteqInterview;
 			sourceTree = "<group>";
@@ -142,6 +148,7 @@
 		4A529BBF20D00D10004284EF /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4A529C0A20D43E16004284EF /* UI */,
 				4A529BF620D2B7C1004284EF /* API */,
 				4A529BEC20D042B4004284EF /* Workers */,
 				4A529BE020D03363004284EF /* Extensions */,
@@ -250,6 +257,14 @@
 			path = DTO;
 			sourceTree = "<group>";
 		};
+		4A529C0A20D43E16004284EF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				4A529C0B20D43E2A004284EF /* HGTableView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		E30CD89BE7225ABC5A8D6132 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A529BE720D03A9A004284EF /* UserDetailsView.xib in Resources */,
+				4A529C0420D2E97D004284EF /* Localizable.strings in Resources */,
 				4A529BF320D050E4004284EF /* UserListItemCell.xib in Resources */,
 				4A529BB720D00BBE004284EF /* LaunchScreen.storyboard in Resources */,
 				4A529BB420D00BBE004284EF /* Assets.xcassets in Resources */,
@@ -356,6 +372,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FinanteqInterview/Pods-FinanteqInterview-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/HGPlaceholders/HGPlaceholders.framework",
 				"${BUILT_PRODUCTS_DIR}/HydraAsync/Hydra.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -366,6 +383,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HGPlaceholders.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hydra.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -409,6 +427,7 @@
 				4A529BCE20D019B0004284EF /* UserDetailsViewController.swift in Sources */,
 				4A529BD420D01D02004284EF /* UserListModels.swift in Sources */,
 				4A529BF820D2BC31004284EF /* GithubAPI.swift in Sources */,
+				4A529C0C20D43E2A004284EF /* HGTableView.swift in Sources */,
 				4A529BAD20D00BBB004284EF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +441,15 @@
 				4A529BB620D00BBE004284EF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4A529C0620D2E97D004284EF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A529C0520D2E97D004284EF /* en */,
+				4A529C0720D2EA50004284EF /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -550,10 +578,7 @@
 				DEVELOPMENT_TEAM = 3329HJBR8A;
 				INFOPLIST_FILE = FinanteqInterview/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dompat.FinanteqInterview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -570,10 +595,7 @@
 				DEVELOPMENT_TEAM = 3329HJBR8A;
 				INFOPLIST_FILE = FinanteqInterview/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dompat.FinanteqInterview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

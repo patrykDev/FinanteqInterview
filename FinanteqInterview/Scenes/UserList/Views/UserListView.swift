@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import HGPlaceholders
+
+protocol UserListViewDelegate: class {
+    func userListView(userListView: UserListView, didSelectItemAt index: Int)
+    func userListViewDidTapTryAgainButton(userListView: UserListView)
+}
 
 class UserListView: UIView {
 
-    @IBOutlet fileprivate var tableView: UITableView!
+    @IBOutlet fileprivate var tableView: HGTableView!
 
     fileprivate var items: [UserListItem] = []
+
+    weak var delegate: UserListViewDelegate?
 
     // MARK: UIView life cycle
 
@@ -28,10 +36,24 @@ class UserListView: UIView {
         tableView.reloadData()
     }
 
+    func setTableView(state: HGTableViewState) {
+        switch state {
+        case .loading:
+            tableView.showLoadingPlaceholder()
+        case .error:
+            tableView.showErrorPlaceholder()
+        case .content:
+            tableView.showDefault()
+        case .empty:
+            tableView.showNoResultsPlaceholder()
+        }
+    }
+
     // MARK: Private helpers
 
     fileprivate func configureTableView() {
         tableView.register(cellType: UserListItemCell.self, reuseIdentifier: UserListItemCell.description())
+        tableView.placeholderDelegate = self
     }
 }
 
@@ -54,6 +76,16 @@ extension UserListView: UITableViewDataSource {
 
 extension UserListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: handle selection
+        delegate?.userListView(userListView: self, didSelectItemAt: indexPath.row)
+    }
+}
+
+extension UserListView: PlaceholderDelegate {
+    func view(_ view: Any, actionButtonTappedFor placeholder: Placeholder) {
+        if placeholder.key == .loadingKey {
+            tableView.showNoResultsPlaceholder()
+        } else {
+            delegate?.userListViewDidTapTryAgainButton(userListView: self)
+        }
     }
 }

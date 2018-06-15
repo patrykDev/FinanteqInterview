@@ -13,5 +13,6 @@ target 'FinanteqInterview' do
   pod 'ObjectMapper'
   pod 'SwiftyJSON'
   pod 'HydraAsync'
+  pod 'HGPlaceholders'
 
 end

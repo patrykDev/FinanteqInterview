@@ -21,4 +21,30 @@ struct UserListScene {
             let userListItems: [UserListItem]
         }
     }
+
+    struct SelectUser {
+        struct Request {
+            let index: Int
+        }
+    }
+
+    struct NavigateToUserDetails {
+        struct Response {
+            let user: User
+        }
+
+        struct ViewModel {
+            let user: User
+        }
+    }
+
+    struct UpdateTableViewState {
+        struct Response {
+            let state: HGTableViewState
+        }
+
+        struct ViewModel {
+            let state: HGTableViewState
+        }
+    }
 }
